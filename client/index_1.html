@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    install live server
+    install npm i -S cors
+    <h1></h1>
+    <p>Welcome to</p>
+    <button type="button" onClick="loadTweets()">Load tweet</button>
+    <div id="tweets_timeline">
+
+    </div>
+    <script>
+    // $(document).ready(function(){
+    //   loadTweets()
+    // })
+
+    function loadTweets() {
+      console.log('masuk');
+      $.ajax({
+        url: 'http://localhost:3000/twitter-api/my-timeline',
+        type 'GET',
+        dataType: 'json',
+        success: function(data){
+          console.log('masuk');
+          console.log(data)
+          data.forEach(function(tweet){
+            $('#tweets_timeline').append(`
+              <p> ${tweet.text} </p>
+            `)
+          })
+        }
+      })
+    }
+    </script>
+  </body>
+</html>
